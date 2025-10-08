@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de cambio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+
+  <div class="container-pastel d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="card pastel p-4 shadow-lg text-center" style="max-width: 420px; width: 100%;">
+      <h1 class="display-pastel mb-4">Calculadora de cambio</h1>
+
+      <form action="cambio.jsp" method="get" class="text-start">
+        <div class="mb-3">
+          <label for="inputTotal" class="form-label fw-semibold">Total (€)</label>
+          <input type="number" step="0.01" id="inputTotal" name="inputTotal" class="form-control pastel" placeholder="Ej: 12.50" required>
+        </div>
+
+        <div class="mb-4">
+          <label for="inputPagado" class="form-label fw-semibold">Pagado (€)</label>
+          <input type="number" step="0.01" id="inputPagado" name="inputPagado" class="form-control pastel" placeholder="Ej: 20.00" required>
+        </div>
+
+        <div class="d-grid">
+          <input type="submit" class="btn btn-lavender btn-lg" value="Calcular cambio">
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer-pastel mt-4">
+      <small>Calculadora de cambio</small>
+      <br>
+      <a href="/servidor-1.0">Volver</a>
+    </footer>
+  </div>
+
+</body>
+</html>
