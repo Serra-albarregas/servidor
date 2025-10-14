@@ -50,6 +50,11 @@ public int[] calcularCambio(float input) {
         <h1 class="display-pastel mb-3 text-danger">Error de validación</h1>
         <p class="fs-5 mb-4">El importe pagado debe ser mayor que el total.</p>
 <%
+    } else if (total<0 || pagado < 0) {
+%>
+        <h1 class="display-pastel mb-3 text-danger">Error de validación</h1>
+        <p class="fs-5 mb-4">Los importes no pueden ser negativos.</p>
+<%
     } else {
 %>
     <h1 class="display-pastel mb-3">Resultado del cambio</h1>
