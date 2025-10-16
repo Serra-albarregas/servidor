@@ -1,5 +1,8 @@
 package com.serra;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -11,13 +14,23 @@ public class Main {
         System.out.println(Arrays.toString(calcularCambio(7.3f)));
         System.out.println(Arrays.toString(calcularCambio(126.32f)));
         System.out.println(Arrays.toString(calcularCambio(93.5f)));
-        System.out.println(Arrays.toString(calcularCambio(0f)));*/
+        System.out.println(Arrays.toString(calcularCambio(0f)));
 
         System.out.println(calcularDivisa(5, "EUR", "JPY"));
         System.out.println(calcularDivisa(5, "AUD", "SEK"));
         System.out.println(calcularDivisa(5, "CHF", "USD"));
         System.out.println(calcularDivisa(5, "NZD", "NZD"));
-        System.out.println(calcularDivisa(5, "CAD", "JPY"));
+        System.out.println(calcularDivisa(5, "CAD", "JPY"));*/
+
+
+        try {
+            String codificado = URLEncoder.encode("HOLA BUENDIA_-;:", "UTF-8");
+            System.out.println(URLEncoder.encode(codificado, "UTF-8"));
+            System.out.println(URLDecoder.decode(codificado, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public static int[] calcularCambio(float input) {
