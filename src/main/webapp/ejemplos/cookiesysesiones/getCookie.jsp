@@ -9,7 +9,6 @@
 <body>
 <%
     Cookie[] cookies = request.getCookies();
-    String valor = "desconocido";
 
     if (cookies != null) {
         for (Cookie c : cookies) {
