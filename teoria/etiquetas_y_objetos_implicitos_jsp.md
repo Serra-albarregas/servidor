@@ -1,11 +1,11 @@
-# 🧩 Etiquetas JSP y Objetos Implícitos
+# Etiquetas JSP y Objetos Implícitos
 
 En las páginas **JSP (JavaServer Pages)**, se combinan **HTML** y **código Java** para generar contenido dinámico.  
 JSP ofrece **etiquetas especiales** y **objetos implícitos** que simplifican el trabajo con Servlets y datos del servidor.
 
 ---
 
-## 🏷️ 1. Tipos de etiquetas JSP
+## 1. Tipos de etiquetas JSP
 
 Las etiquetas JSP permiten insertar código Java o directivas dentro del HTML.  
 Se dividen en varios tipos principales:
@@ -21,7 +21,7 @@ Se dividen en varios tipos principales:
 
 ---
 
-### 🔧 1.1 Directivas JSP (`<%@ ... %>`)
+### 1.1 Directivas JSP (`<%@ ... %>`)
 
 Las directivas **configuran el entorno** de la página JSP.  
 Las más comunes son:
@@ -38,7 +38,7 @@ Las más comunes son:
 
 ---
 
-### 🧠 1.2 Scriptlets (`<% ... %>`)
+### 1.2 Scriptlets (`<% ... %>`)
 
 Permiten insertar **código Java** directamente dentro de la página.
 
@@ -51,7 +51,7 @@ Permiten insertar **código Java** directamente dentro de la página.
 
 ---
 
-### 💬 1.3 Expresiones (`<%= ... %>`)
+### 1.3 Expresiones (`<%= ... %>`)
 
 Evalúan una expresión y muestran el resultado en el HTML.
 
@@ -66,7 +66,7 @@ Equivale a escribir:
 
 ---
 
-### 🧩 1.4 Declaraciones (`<%! ... %>`)
+### 1.4 Declaraciones (`<%! ... %>`)
 
 Permiten **definir variables o métodos** que pertenecen a la clase generada del JSP.
 
@@ -82,7 +82,7 @@ Permiten **definir variables o métodos** que pertenecen a la clase generada del
 
 ---
 
-### 💬 1.5 Comentarios JSP (`<%-- ... --%>`)
+### 1.5 Comentarios JSP (`<%-- ... --%>`)
 
 Comentarios que **no se envían al navegador**, útiles para desarrolladores:
 
@@ -92,7 +92,7 @@ Comentarios que **no se envían al navegador**, útiles para desarrolladores:
 
 ---
 
-### 🧱 1.6 Acciones JSP (`<jsp:...>`)
+### 1.6 Acciones JSP (`<jsp:...>`)
 
 Usan una sintaxis XML y realizan tareas comunes dentro de JSP.
 
@@ -107,7 +107,7 @@ Usan una sintaxis XML y realizan tareas comunes dentro de JSP.
 
 ---
 
-## 💡 2. Objetos implícitos de JSP
+## 2. Objetos implícitos de JSP
 
 JSP proporciona varios **objetos predefinidos** disponibles automáticamente en la página, sin necesidad de declararlos.
 
@@ -125,7 +125,7 @@ JSP proporciona varios **objetos predefinidos** disponibles automáticamente en 
 
 ---
 
-### 🧭 Ejemplo de uso de objetos implícitos
+### Ejemplo de uso de objetos implícitos
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
@@ -141,7 +141,7 @@ JSP proporciona varios **objetos predefinidos** disponibles automáticamente en 
 
 ---
 
-## ✅ Buenas prácticas modernas
+## Buenas prácticas modernas
 
 - Evita usar **scriptlets** (`<% %>`).  
   Usa **Expression Language (EL)** y **JSTL** en su lugar.  
@@ -150,5 +150,5 @@ JSP proporciona varios **objetos predefinidos** disponibles automáticamente en 
 
 ---
 
-📚 **Conclusión:**  
+ **Conclusión:**  
 Las etiquetas JSP y los objetos implícitos son herramientas poderosas para generar contenido dinámico. Sin embargo, en aplicaciones modernas, se recomienda usarlas con cuidado y apoyarse en **JSTL** y **EL** para mantener el código limpio y mantenible.

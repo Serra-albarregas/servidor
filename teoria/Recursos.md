@@ -1,14 +1,14 @@
-# 📁 Dónde guardar las imágenes en un proyecto JSP + Servlet con Maven
+# Dónde guardar las imágenes en un proyecto JSP + Servlet con Maven
 
 En un proyecto **JSP + Servlets**, el lugar correcto para guardar las imágenes depende de si son **recursos estáticos del sitio** (por ejemplo, iconos o logos) o **imágenes subidas por los usuarios**.
 
 ---
 
-## 🖼️ 1. Imágenes estáticas (logos, iconos, fondos, etc.)
+## 1. Imágenes estáticas (logos, iconos, fondos, etc.)
 
 Estas imágenes forman parte de la aplicación web, así que deben ir dentro del **contexto del servidor**, normalmente en la carpeta `src/main/webapp`.
 
-### 📂 Estructura recomendada
+### Estructura recomendada
 
 ```
 YourProject/
@@ -32,12 +32,12 @@ De esta forma, podrás acceder a ellas directamente desde tus JSP con una ruta r
 
 ---
 
-## 📤 2. Imágenes subidas por los usuarios
+## 2. Imágenes subidas por los usuarios
 
 Estas **no deben guardarse dentro del proyecto** (porque se sobrescriben al desplegar una nueva versión del WAR).  
 En su lugar, se deben almacenar en una **carpeta fuera del contexto de la aplicación** o en un **almacenamiento persistente** (como una base de datos o un servicio de archivos).
 
-### 📂 Ejemplo de estructura
+### Ejemplo de estructura
 
 ```
 C:/uploads/imagenes/
@@ -57,7 +57,7 @@ Para mostrar las imágenes, puedes crear un **Servlet específico** (por ejemplo
 
 ---
 
-## ⚙️ Alternativa moderna
+## Alternativa moderna
 
 En proyectos más grandes o en producción, lo habitual es usar:
 - Un **bucket de almacenamiento** (como Amazon S3, Azure Blob Storage, etc.)
@@ -65,7 +65,7 @@ En proyectos más grandes o en producción, lo habitual es usar:
 
 ---
 
-## 📦 3. ¿Y qué pasa con la carpeta `src/main/resources`?
+## 3. ¿Y qué pasa con la carpeta `src/main/resources`?
 
 La carpeta `src/main/resources` es una carpeta especial de Maven donde se colocan **recursos internos del proyecto** que:
 
@@ -77,7 +77,7 @@ Por ejemplo:
 - Ficheros de mensajes (i18n)
 - Plantillas internas
 
-### 🚫 Por qué **no** usarla para imágenes web
+### Por qué **no** usarla para imágenes web
 
 Cuando Maven construye tu proyecto, los recursos de `resources` se copian al **classpath**, no a la raíz pública del WAR.  
 Por tanto, **el navegador no puede acceder directamente** a ellos con una URL como `/images/logo.png`.
@@ -94,7 +94,7 @@ y no será accesible vía HTTP.
 
 ---
 
-## ✅ En resumen
+## En resumen
 
 | Tipo de recurso | Carpeta recomendada | Accesible desde navegador | Ejemplo de uso |
 |-----------------|---------------------|---------------------------|----------------|
