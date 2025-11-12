@@ -24,6 +24,15 @@ I18N | fmt | http://java.sun.com/jsp/jstl/fmt | Internacionalización (idiomas, 
 Database | sql | http://java.sun.com/jsp/jstl/sql | Acceso básico a bases de datos |
 Functions | fn | http://java.sun.com/jsp/jstl/functions | Funciones de cadenas |
 
+Para utilizarlo en un proyecto se debe añadir su dependendencia al pom.
+``` xml
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+```
+
 ## Expression Language (EL)
 
 ### Sintaxis
@@ -115,7 +124,7 @@ ${cookie.nombreUsuario.value}
 ```
 
 Las expresiones EL también admiten en uso de corchetes `[]`. Se pueden utilizar en dos situaciones:
-- Como sustituto del `.` en el acceso a objetos. `${perro.nombre}` es equivalente a `${perro["nombre]}`.
+- Como sustituto del `.` en el acceso a objetos. `${perro.nombre}` es equivalente a `${perro["nombre"]}`.
 - Para acceder a elementos de tipo colección (como arrays, Listas o Mapas), por ejemplo, si tuviesemos una lista de objetos de tipo Perro, podríamos acceder a uno de ellos de la siguiente manera `${perros[3].nombre}`.
 
 ## JSP Standar Tag Library (JSTL)
@@ -158,7 +167,7 @@ Estructura de control de tipo if, donde si se cumple la condición se muestra el
 </c:if>
 ```
 
-#### `c:choose`,`c:when`,`c:otherwise`: switch
+#### `c:choose`,`c:when`,`c:otherwise`: switch/if-else
 
 Estructura de control de tipo switch. Donde `c:choose`=`switch`, `c:when`=`case` y `c:otherwise`=`default`.
 

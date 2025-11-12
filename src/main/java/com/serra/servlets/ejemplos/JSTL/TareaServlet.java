@@ -20,8 +20,9 @@ public class TareaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //Obtener el nombre de usuario
-        String usuario = request.getParameter("usuario") != null ? request.getParameter("usuario"):"Invitado";
+        // Obtener el nombre de usuario
+        String usuario = request.getParameter("usuario");
+        usuario = usuario != null && !usuario.isEmpty() ? usuario : "Invitado";
 
         // Obtener la sesión
         HttpSession session = request.getSession();
@@ -50,26 +51,46 @@ public class TareaServlet extends HttpServlet {
         String descripcion = request.getParameter("descripcion");
         boolean completada = "on".equals(request.getParameter("completada"));
 
+        // Validación de campos
+        boolean hayError = false;
+        StringBuilder mensajeError = new StringBuilder();
+
+        if (titulo == null || titulo.trim().isEmpty()) {
+            hayError = true;
+            mensajeError.append("El título es obligatorio.<br>");
+        }
+
+        if (descripcion != null && descripcion.length() > 200) {
+            hayError = true;
+            mensajeError.append("La descripción no puede superar 200 caracteres.<br>");
+        }
+
         // Obtener la sesión y la lista de tareas
         HttpSession session = request.getSession();
         List<Tarea> tareas = (List<Tarea>) session.getAttribute("tareas");
-
         if (tareas == null) {
             tareas = new ArrayList<>();
         }
 
-        // Crear nueva tarea
-        Tarea nueva = new Tarea(titulo, descripcion, completada);
-        tareas.add(nueva);
+        if (!hayError) {
+            // Crear nueva tarea y añadir a la lista
+            Tarea nueva = new Tarea(titulo, descripcion, completada);
+            tareas.add(nueva);
+            session.setAttribute("tareas", tareas);
 
-        // Guardar lista actualizada
-        session.setAttribute("tareas", tareas);
-
-        // Mensaje temporal en request (solo dura una petición)
-        request.setAttribute("mensaje", "Tarea añadida correctamente");
+            // Mensaje de éxito
+            request.setAttribute("mensaje", "Tarea añadida correctamente");
+        } else {
+            // Mantener datos ingresados en caso de error
+            request.setAttribute("titulo", titulo);
+            request.setAttribute("descripcion", descripcion);
+            request.setAttribute("completada", completada);
+            request.setAttribute("mensaje", mensajeError.toString());
+        }
 
         // Redirigir a la vista
         RequestDispatcher dispatcher = request.getRequestDispatcher("ejemplos/JSTL/tareasVista.jsp");
         dispatcher.forward(request, response);
     }
+
 }
