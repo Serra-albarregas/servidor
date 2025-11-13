@@ -1,5 +1,6 @@
 package com.serra.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Mastermind {
+public class Mastermind implements Serializable{
     private int nDigitos;
     private String solucion;
     private LinkedHashMap<String, int[]> intentos;
@@ -22,11 +23,11 @@ public class Mastermind {
         intentos = new LinkedHashMap<>();
     }
 
-    public int getNDigitos() {
+    public int getnDigitos() {
         return this.nDigitos;
     }
 
-    public void setNDigitos(int nDigitos) {
+    public void setnDigitos(int nDigitos) {
         this.nDigitos = nDigitos;
     }
 
@@ -71,7 +72,7 @@ public class Mastermind {
         return comprobacion;
     }
 
-    public boolean intentoValido(String intento){
+    private boolean intentoValido(String intento){
         boolean repetidos = false;
         for (int i = 0; i < intento.length() && !repetidos; i++) {
             int veces = 0;
@@ -86,7 +87,10 @@ public class Mastermind {
         return intento.matches("[0-9]{"+nDigitos+"}") && !repetidos;
     }
 
-    public boolean nuevoTurno(String intento){
+    public boolean nuevoTurno(String intento) throws IllegalArgumentException{
+        if (!intentoValido(intento)){
+            throw new IllegalArgumentException("El numero introducido debe tener " + nDigitos + " digitos diferentes");
+        }
         int [] comprobacion = comprobarIntento(intento);
         intentos.put(intento, comprobacion);
         boolean ganador = false;

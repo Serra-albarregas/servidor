@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                            http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>jstlfn</short-name>
+    <uri>http://www.utilidades.com/jstlfn</uri>
+
+    <function>
+        <name>coloresAleatorios</name>
+        <function-class>com.serra.utils.JSTLfn</function-class>
+        <function-signature>java.util.ArrayList coloresAleatorios(int)</function-signature>
+    </function>
+</taglib>
