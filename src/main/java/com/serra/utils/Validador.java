@@ -32,7 +32,8 @@ public class Validador {
         try {
             int numero = Integer.parseInt(numeroStr.trim());
             if (numero < min || numero > max) {
-                throw new IllegalArgumentException("El valor de " + numeroStr + " debe estar comprendido entre " + min + " y " + max);
+                throw new IllegalArgumentException(
+                        "El valor de " + numeroStr + " debe estar comprendido entre " + min + " y " + max);
             }
             return numero;
         } catch (NumberFormatException e) {
@@ -46,7 +47,7 @@ public class Validador {
             throw new IllegalArgumentException("El campo no debe estar vacío");
         }
 
-        if (numeroStr.length()!=nDigitos) {
+        if (numeroStr.length() != nDigitos) {
             throw new IllegalArgumentException("El número de dígitos debe ser " + nDigitos);
         }
 
@@ -58,16 +59,36 @@ public class Validador {
         }
     }
 
-        public static String validarTamanioStr(String numeroStr, int nDigitos) throws IllegalArgumentException {
+    public static Integer validarEntero(String numeroStr){
+        if (numeroStr == null || numeroStr.trim().isEmpty()) {
+            throw new IllegalArgumentException("El campo no debe estar vacío");
+        }
+        try {
+            int numero = Integer.parseInt(numeroStr.trim());
+            return numero;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Error de formato en el campo " + numeroStr);
+        }
+    }
+
+    public static String validarTamanioStr(String numeroStr, int nDigitos) throws IllegalArgumentException {
 
         if (numeroStr == null || numeroStr.trim().isEmpty()) {
             throw new IllegalArgumentException("El campo no debe estar vacío");
         }
 
-        if (numeroStr.length()!=nDigitos) {
+        if (numeroStr.length() != nDigitos) {
             throw new IllegalArgumentException("El número de dígitos debe ser " + nDigitos);
         }
 
         return numeroStr;
+    }
+
+    public static String validarString(String string) {
+        if (string == null || string.trim().isEmpty()) {
+            throw new IllegalArgumentException("El campo no debe estar vacío");
+        }
+
+        return string;
     }
 }
