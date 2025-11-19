@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.serra.beans.Mastermind;
 import com.serra.utils.Validador;
 
-@WebServlet(name = "MastermindServlet", urlPatterns = { "/mastermindServlet" })
+@WebServlet(name = "MastermindServlet", urlPatterns = { "/ejerciciosmvc/mastermind/mastermindServlet" })
 public class MastermindServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,10 +21,10 @@ public class MastermindServlet extends HttpServlet {
         String mensaje = "";
         boolean error = false;
 
-        if (session == null) {
-            resp.sendRedirect("ejerciciosmvc/mastermind/inicio.jsp");
+        /*if (session == null) {
+            resp.sendRedirect("inicio.jsp");
             return;
-        }
+        }*/
 
         Mastermind mm = (Mastermind) session.getAttribute("juego");
         try {
@@ -48,6 +48,6 @@ public class MastermindServlet extends HttpServlet {
         }
 
         req.setAttribute("mensaje", mensaje);
-        req.getRequestDispatcher("ejerciciosmvc/mastermind/juego.jsp").forward(req, resp);
+        req.getRequestDispatcher("juego.jsp").forward(req, resp);
     }
 }

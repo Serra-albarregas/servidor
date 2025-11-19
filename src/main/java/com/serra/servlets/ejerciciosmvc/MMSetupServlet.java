@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.serra.beans.Mastermind;
 import com.serra.utils.Validador;
 
-@WebServlet(name = "MMSetupServlet", urlPatterns = { "/mmSetupServlet" })
+@WebServlet(name = "MMSetupServlet", urlPatterns = { "/ejerciciosmvc/mastermind/mmSetupServlet" })
 public class MMSetupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,9 +34,9 @@ public class MMSetupServlet extends HttpServlet {
 
         String url = "";
         if (!error) {
-            url = "ejerciciosmvc/mastermind/juego.jsp";
+            url = "juego.jsp";
         } else {
-            url = "ejerciciosmvc/mastermind/inicio.jsp";
+            url = "inicio.jsp";
             req.setAttribute("mensaje", mensaje);
         }
         req.getRequestDispatcher(url).forward(req,resp);

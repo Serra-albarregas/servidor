@@ -28,7 +28,7 @@
         <p>${mensaje}</p>
     </c:if>
 
-    <form action="${pageContext.request.contextPath}/mastermindServlet" method="post">
+    <form action="${pageContext.request.contextPath}/ejerciciosmvc/mastermind/mastermindServlet" method="post">
         <label for="intento">Adivina el número</label>
         <input type="number" id="intento" name="intento" autofocus
             ${ganar ? "disabled" : ""} >
@@ -38,11 +38,11 @@
 
     <c:if test="${ganar}" >
         <p>HAS GANADO</p>
-        <form action="${pageContext.request.contextPath}/mmSetupServlet" method="post">
+        <form action="${pageContext.request.contextPath}/ejerciciosmvc/mastermind/mmSetupServlet" method="post">
             <input type="hidden" name="nDigitos" id="nDigitos" value="${sessionScope.juego.nDigitos}">
             <input type="submit" value="Repetir con ${sessionScope.juego.nDigitos}">
         </form>
-        <form action="ejerciciosmvc/mastermind/inicio.jsp">
+        <form action="inicio.jsp">
             <input type="submit" value="Volver a Jugar">
         </form>
     </c:if>

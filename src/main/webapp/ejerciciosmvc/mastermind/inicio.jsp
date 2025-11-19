@@ -22,9 +22,9 @@
     </c:forEach>
 
     <c:if test="${not empty mensaje}" >
-        <p>${mensaje}</p>
+        <p><c:out value="${mensaje}"/></p>
     </c:if>
-    <form action="${pageContext.request.contextPath}/mmSetupServlet" method="post">
+    <form action="${pageContext.request.contextPath}/ejerciciosmvc/mastermind/mmSetupServlet" method="post">
         <label for="nDigitos">Número de dígitos</label>
         <input type="number" name="nDigitos" id="nDigitos" autofocus>
         <input type="submit" value="Comenzar juego">
