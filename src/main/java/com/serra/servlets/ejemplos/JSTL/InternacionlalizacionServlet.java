@@ -25,7 +25,6 @@ public class InternacionlalizacionServlet extends HttpServlet{
 
         String mensaje = "";
         boolean error = false;
-        System.out.println(TimeZone.getTimeZone("Europe/Paris"));
         try {
             nombre = Validador.validarString(nombre);
             dinero = Validador.validarEntero(dineroStr);
